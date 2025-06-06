@@ -1,41 +1,6 @@
 <template>
   <div class="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50">
-    <header class="sticky top-0 bg-white/95 shadow-lg backdrop-blur-sm z-50">
-      <div class="container mx-auto px-4 py-4">
-        <div class="flex items-center justify-between">
-          <div class="flex items-center space-x-2">
-            <div class="bg-gradient-to-r from-blue-600 to-purple-600 p-2 rounded-xl">
-              <IconMovieRecorder />
-            </div>
-            <h1 class="text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-              MovieFinder
-            </h1>
-          </div>
-
-          <nav class="hidden md:flex items-center space-x-8">
-            <a href="#" class="text-gray-700 hover:text-blue-600 font-medium transition-colors">首頁</a>
-            <a href="#" class="text-gray-700 hover:text-blue-600 font-medium transition-colors">電影</a>
-            <a href="#" class="text-gray-700 hover:text-blue-600 font-medium transition-colors">電視劇</a>
-            <a href="#" class="text-gray-700 hover:text-blue-600 font-medium transition-colors">我的最愛</a>
-          </nav>
-
-          <button class="md:hidden p-2" @click="setMenuOpen">
-            <IconX v-if="menuOpen" />
-            <IconMenu v-else />
-          </button>
-        </div>
-
-        <nav v-if="menuOpen" class="md:hidden mt-4 pb-4 border-t pt-4">
-          <div class="flex flex-col space-y-3">
-            <a href="#" class="text-gray-700 hover:text-blue-600 font-medium">首頁</a>
-            <a href="#" class="text-gray-700 hover:text-blue-600 font-medium">電影</a>
-            <a href="#" class="text-gray-700 hover:text-blue-600 font-medium">電視劇</a>
-            <a href="#" class="text-gray-700 hover:text-blue-600 font-medium">我的最愛</a>
-          </div>
-        </nav>
-
-      </div>
-    </header>
+    <Header :menuOpen="menuOpen" @setMenuOpen="setMenuOpen" />
 
     <!-- {/* Search Section */} -->
     <section class="relative py-16 bg-gradient-to-r from-blue-600 via-purple-600 to-indigo-700">
@@ -96,55 +61,7 @@
     </div>
 
     <!-- Footer -->
-    <footer class="bg-gray-900 text-white py-12">
-      <div class="container mx-auto px-4">
-        <div class="grid md:grid-cols-4 gap-8">
-          <div>
-            <div class="flex items-center space-x-2 mb-4">
-              <div class="bg-gradient-to-r from-blue-600 to-purple-600 p-2 rounded-xl">
-                <IconMovieRecorder />
-              </div>
-              <h3 class="text-xl font-bold">MovieFinder</h3>
-            </div>
-            <p class="text-gray-400">
-              你的專屬影視探索平台，發現更多精彩內容。
-            </p>
-          </div>
-          <div>
-            <h4 class="font-semibold mb-4">快速連結</h4>
-            <ul class="space-y-2 text-gray-400">
-              <li><a href="#" class="hover:text-white transition-colors">熱門電影</a></li>
-              <li><a href="#" class="hover:text-white transition-colors">熱門電視劇</a></li>
-              <li><a href="#" class="hover:text-white transition-colors">即將上映</a></li>
-              <li><a href="#" class="hover:text-white transition-colors">排行榜</a></li>
-            </ul>
-          </div>
-          <div>
-            <h4 class="font-semibold mb-4">分類</h4>
-            <ul class="space-y-2 text-gray-400">
-              <li><a href="#" class="hover:text-white transition-colors">動作</a></li>
-              <li><a href="#" class="hover:text-white transition-colors">喜劇</a></li>
-              <li><a href="#" class="hover:text-white transition-colors">科幻</a></li>
-              <li><a href="#" class="hover:text-white transition-colors">恐怖</a></li>
-            </ul>
-          </div>
-
-          <div>
-            <h4 class="font-semibold mb-4">關於我們</h4>
-            <ul class="space-y-2 text-gray-400">
-              <li><a href="#" class="hover:text-white transition-colors">聯絡我們</a></li>
-              <li><a href="#" class="hover:text-white transition-colors">隱私政策</a></li>
-              <li><a href="#" class="hover:text-white transition-colors">服務條款</a></li>
-              <li><a href="#" class="hover:text-white transition-colors">FAQ</a></li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
-          <p>&copy; 2024 MovieFinder. All rights reserved.</p>
-        </div>
-      </div>
-    </footer>
+    <Footer></Footer>
     <!-- <RouterView /> -->
   </div>
 </template>
@@ -154,12 +71,11 @@ import { RouterLink, RouterView } from 'vue-router'
 import { ref } from "vue";
 import '@/components/icons/Iconsearch.vue'
 import Iconsearch from '@/components/icons/Iconsearch.vue';
-import IconMovieRecorder from '@/components/icons/IconMovieRecorder.vue';
-import IconMenu from '@/components/icons/IconMenu.vue';
-import IconX from './components/icons/IconX.vue';
-import IconTrendingUp from './components/icons/IconTrendingUp.vue';
-import MovieCard from './components/MovieCard.vue';
-import IconTv from './components/icons/IconTv.vue';
+import IconTrendingUp from '@/components/icons/IconTrendingUp.vue';
+import MovieCard from '@/components/MovieCard.vue';
+import IconTv from '@/components/icons/IconTv.vue';
+import Header from '@/components/Header.vue';
+import Footer from '@/components/Footer.vue'
 
 let menuOpen = ref(false)
 
