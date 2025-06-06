@@ -1,27 +1,27 @@
 <template>
     <div
-        class="group relative bg-white rounded-xl shadow-lg hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-300 overflow-hidden">
+        class="relative overflow-hidden transition-all duration-300 transform bg-white shadow-lg group rounded-xl hover:shadow-2xl hover:-translate-y-2">
         <div class="relative">
-            <img :src=movie.poster :alt=movie.title :key=movie.id
-                class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-300" />
+            <img :src="'https://image.tmdb.org/t/p/original' + movie.poster_path" :alt=movie.title :key=movie.id
+                class="object-cover w-full transition-transform duration-300 h-70 group-hover:scale-100" />
             <div
-                class="absolute top-2 left-2 bg-gradient-to-r from-yellow-400 to-orange-500 text-white px-2 py-1 rounded-full text-sm font-bold flex items-center">
-                <span class="text-lg mr-1"> #{{ movie.id }}</span>
+                class="absolute flex items-center px-2 py-1 text-sm font-bold text-white rounded-full top-2 left-2 bg-gradient-to-r from-yellow-400 to-orange-500">
+                <span class="mr-1 text-lg"> #{{ index + 1 }}</span>
             </div>
             <div
-                class="absolute inset-0 bg-black/0 group-hover:bg-black/40 transition-colors duration-300 flex items-center justify-center">
+                class="absolute inset-0 flex items-center justify-center transition-colors duration-300 bg-black/0 group-hover:bg-black/40">
                 <IconPlay />
             </div>
         </div>
 
 
         <div class="p-4">
-            <h3 class="font-bold text-gray-800 mb-2 line-clamp-2 group-hover:text-blue-600 transition-colors">
-                {{ movie.title }}
+            <h3 class="mb-2 font-bold text-gray-800 transition-colors line-clamp-2 group-hover:text-blue-600">
+                {{ movie.title || movie.name }}
             </h3>
-            <div class="flex items-center text-gray-600 text-sm">
+            <div class="flex items-center text-sm text-gray-600">
                 <IconCalendar class="w-4 h-4 mr-1" />
-                {{ movie.year }}
+                {{ movie.release_date || movie.first_air_date }}
             </div>
         </div>
     </div>
@@ -29,11 +29,10 @@
 </template>
 
 <script lang="ts" setup name="MovieCard">
-import { defineProps } from 'vue'
 
 import IconPlay from './icons/IconPlay.vue';
 import IconCalendar from './icons/IconCalendar.vue';
 
-let x = defineProps(['movie'])
+defineProps(['movie', 'index'])
 
 </script>
