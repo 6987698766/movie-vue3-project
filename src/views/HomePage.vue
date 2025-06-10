@@ -35,6 +35,11 @@
 import { onMounted, ref } from "vue";
 import axios from 'axios';
 import Search from '@/components/Search.vue'
+import { storeToRefs } from "pinia";
+import { useSearchStore } from '@/stores/search'
+
+const searchStore = useSearchStore();
+const { searchQuery, results } = storeToRefs(searchStore);
 
 
 import IconTrendingUp from '@/components/icons/IconTrendingUp.vue';
@@ -70,6 +75,9 @@ async function getTopTvShow() {
 }
 
 onMounted(() => {
+    searchQuery.value = "";
+    results.value = [];
+
     getTopMoive()
     getTopTvShow()
 })
