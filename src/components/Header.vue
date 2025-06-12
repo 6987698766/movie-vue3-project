@@ -15,13 +15,15 @@
                 </router-link>
 
                 <nav class="items-center hidden space-x-8 md:flex">
-                    <!-- <a href="/" class="font-medium text-gray-700 transition-colors hover:text-blue-600">首頁</a> -->
                     <router-link :to="'/'" class="font-medium text-gray-700 transition-colors hover:text-blue-600">
                         首頁
                     </router-link>
                     <a href="#" class="font-medium text-gray-700 transition-colors hover:text-blue-600">電影</a>
                     <a href="#" class="font-medium text-gray-700 transition-colors hover:text-blue-600">電視劇</a>
-                    <a href="#" class="font-medium text-gray-700 transition-colors hover:text-blue-600">我的最愛</a>
+                    <router-link :to="'/watchlist'"
+                        class="font-medium text-gray-700 transition-colors hover:text-blue-600">
+                        待看清單
+                    </router-link>
                 </nav>
 
                 <button class="p-2 md:hidden" @click="menuStore.setMenuOpen">
@@ -35,7 +37,7 @@
                     <a href="#" class="font-medium text-gray-700 hover:text-blue-600">首頁</a>
                     <a href="#" class="font-medium text-gray-700 hover:text-blue-600">電影</a>
                     <a href="#" class="font-medium text-gray-700 hover:text-blue-600">電視劇</a>
-                    <a href="#" class="font-medium text-gray-700 hover:text-blue-600">我的最愛</a>
+                    <a href="#" class="font-medium text-gray-700 hover:text-blue-600">待看清單</a>
                 </div>
             </nav>
 
