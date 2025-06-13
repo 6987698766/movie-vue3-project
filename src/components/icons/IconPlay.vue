@@ -1,12 +1,23 @@
 <template>
-    <svg class="w-12 h-12 opacity-0 group-hover:opacity-100 transition-opacity duration-300" viewBox="0 0 24 24"
-        fill="none" xmlns="http://www.w3.org/2000/svg">
+    <svg :class="customClass" viewBox="0 0 24 24" :fill="isSolid ? 'currentColor' : 'none'"
+        xmlns="http://www.w3.org/2000/svg">
         <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
         <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
         <g id="SVGRepo_iconCarrier">
-            <path fill-rule="evenodd" clip-rule="evenodd"
-                d="M7.5 4.59863L18.6021 12L7.5 19.4014V4.59863ZM9 7.40141V16.5986L15.8979 12L9 7.40141Z" fill="#FFFFFF">
+            <path d="M8 5v14l11-7z" stroke="currentColor" stroke-width="2">
             </path>
         </g>
     </svg>
 </template>
+<script setup lang="ts">
+defineProps({
+    customClass: {
+        type: String,
+        default: "w-6 h-6",
+    },
+    isSolid: {
+        type: Boolean,
+        default: true,
+    },
+});
+</script>
