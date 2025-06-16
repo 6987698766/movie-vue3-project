@@ -116,7 +116,7 @@
   <section class="flex-col px-16 py-12">
     <p class="mb-4 text-2xl">{{ $t("detail.mainCast") }}</p>
     <div>
-      <ul class="flex space-x-2">
+      <ul class="grid grid-cols-3 gap-2 lg:grid-cols-7">
         <li v-for="p in detailCast" :key="p.id">
           <img
             :src="`https://media.themoviedb.org/t/p/w138_and_h175_face${p.profile_path}`"
