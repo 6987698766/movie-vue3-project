@@ -75,10 +75,12 @@
       <div class="text-white">
         <p class="text-4xl">{{ detailData.name }}</p>
 
-        <div class="flex space-x-2 text-s text-slate-200">
+        <div class="flex-col text-s text-slate-200">
           <span>{{ detailData.first_air_date }}</span>
-          <span class="flex space-x-2">
-            ・<span v-for="g in detailData.genres"> {{ g.name }} </span>
+          <span class="flex space-x-1">
+            <span v-for="(g, index) in detailData.genres">
+              {{ g.name }} <span v-if="index !== detailData.genres.length - 1">/</span>
+            </span>
           </span>
         </div>
       </div>

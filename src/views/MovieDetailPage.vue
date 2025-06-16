@@ -73,15 +73,17 @@
   </section>
   <section>
     <div class="flex-1 p-8 space-y-4 lg:hidden lg:p-1 bg-zinc-900">
-      <div class="text-white">
+      <div class="space-y-2 text-white">
         <p class="text-4xl">{{ detailData.title }}</p>
 
-        <div class="flex space-x-2 text-s text-slate-200">
+        <div class="flex-col text-s text-slate-200">
           <span>{{ detailData.release_date }}</span>
-          <span class="flex space-x-2">
-            ・<span v-for="g in detailData.genres"> {{ g.name }} </span>
+          <span class="flex space-x-1">
+            <span v-for="(g, index) in detailData.genres">
+              {{ g.name }}<span v-if="index !== detailData.genres.length - 1"> /</span>
+            </span>
           </span>
-          <span>・{{ formattedRuntime }}</span>
+          <span>{{ formattedRuntime }}</span>
         </div>
       </div>
 
