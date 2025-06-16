@@ -25,12 +25,12 @@ const router = createRouter({
     },
     {
       name: "MovieDetailPage",
-      path: "/media-detail/:type/:id",
+      path: "/media-detail/movie/:id",
       component: MovieDetailPage,
     },
     {
       name: "TvDetailPage",
-      path: "/media-detail/:type/:id",
+      path: "/media-detail/tv/:id",
       component: TvDetailPage,
     },
   ],
