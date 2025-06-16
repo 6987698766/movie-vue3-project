@@ -20,20 +20,24 @@
             :to="'/'"
             class="font-medium text-gray-700 transition-colors hover:text-blue-600"
           >
-            首頁
+            {{ $t("navigation.home") }}
           </router-link>
-          <a href="#" class="font-medium text-gray-700 transition-colors hover:text-blue-600"
+          <!-- <a href="#" class="font-medium text-gray-700 transition-colors hover:text-blue-600"
             >電影</a
-          >
-          <a href="#" class="font-medium text-gray-700 transition-colors hover:text-blue-600"
-            >電視劇</a
-          >
+          >-->
+
           <router-link
             :to="'/watchlist'"
             class="font-medium text-gray-700 transition-colors hover:text-blue-600"
           >
-            待看清單
+            {{ $t("navigation.watchlist") }}
           </router-link>
+
+          <button @click="toggleLang" class="flex items-center space-x-1">
+            <IconTaiwan v-if="locale === 'en'" class="w-5 h-5" />
+            <IconAmerica v-else class="w-5 h-5" />
+            <span>{{ locale === "zh-TW" ? "EN" : "TW" }}</span>
+          </button>
         </nav>
 
         <button class="p-2 md:hidden" @click="menuStore.setMenuOpen">
@@ -48,16 +52,19 @@
             :to="'/'"
             class="font-medium text-gray-700 transition-colors hover:text-blue-600"
           >
-            首頁
+            {{ $t("navigation.home") }}
           </router-link>
-          <!-- <a href="#" class="font-medium text-gray-700 hover:text-blue-600">電影</a>
-          <a href="#" class="font-medium text-gray-700 hover:text-blue-600">電視劇</a> -->
           <router-link
             :to="'/watchlist'"
             class="font-medium text-gray-700 transition-colors hover:text-blue-600"
           >
-            待看清單
+            {{ $t("navigation.watchlist") }}
           </router-link>
+          <button @click="toggleLang" class="flex items-center space-x-1">
+            <IconTaiwan v-if="locale === 'en'" class="w-5 h-5" />
+            <IconAmerica v-else class="w-5 h-5" />
+            <span>{{ locale === "zh-TW" ? "EN" : "TW" }}</span>
+          </button>
         </div>
       </nav>
     </div>
@@ -68,10 +75,17 @@
 import IconMovieRecorder from "@/components/icons/IconMovieRecorder.vue";
 import IconMenu from "@/components/icons/IconMenu.vue";
 import IconX from "@/components/icons/IconX.vue";
+import IconAmerica from "./icons/IconAmerica.vue";
+import IconTaiwan from "./icons/IconTaiwan.vue";
 import { useMenuStore } from "@/stores/menu";
+
+import { useI18n } from "vue-i18n";
 
 const menuStore = useMenuStore();
 
-// const props = defineProps(['menuOpen'])
-// const emit = defineEmits(['setMenuOpen'])
+const { locale } = useI18n();
+
+function toggleLang() {
+  locale.value = locale.value === "en" ? "zh-TW" : "en";
+}
 </script>

@@ -21,7 +21,7 @@
           />
         </div>
         <!-- 右側 -->
-        <div class="flex-1 hidden p-8 space-y-4 lg:p-1 lg:block">
+        <div class="flex-1 hidden p-8 space-y-4 lg:p-1 lg:pr-12 lg:block">
           <div class="text-white">
             <p class="text-4xl">{{ detailData.name }}</p>
 
@@ -45,13 +45,15 @@
               </span>
               <p class="">
                 {{
-                  watchlistStore.checkBookmarked(detailData.id) ? "取消待看清單" : "加入待看清單"
+                  watchlistStore.checkBookmarked(detailData.id)
+                    ? $t("detail.removeWatchlist")
+                    : $t("detail.addWatchlist")
                 }}
               </p>
             </button>
             <button class="flex items-center space-x-1" @click="showModal = true">
               <IconPlay :isSolid="true" class="text-white" />
-              <p>播放預告片</p>
+              <p>{{ $t("detail.playTrailer") }}</p>
             </button>
           </div>
 
@@ -92,12 +94,16 @@
             <IconBookmark :is-filled="watchlistStore.checkBookmarked(detailData.id)" />
           </span>
           <p class="">
-            {{ watchlistStore.checkBookmarked(detailData.id) ? "取消待看清單" : "加入待看清單" }}
+            {{
+              watchlistStore.checkBookmarked(detailData.id)
+                ? $t("detail.removeWatchlist")
+                : $t("detail.addWatchlist")
+            }}
           </p>
         </button>
         <button class="flex items-center space-x-1" @click="showModal = true">
           <IconPlay :isSolid="true" class="text-white" />
-          <p>播放預告片</p>
+          <p>{{ $t("detail.playTrailer") }}</p>
         </button>
       </div>
 
@@ -108,7 +114,7 @@
     </div>
   </section>
   <section class="flex-col px-16 py-12">
-    <p class="mb-4 text-2xl">主要演員</p>
+    <p class="mb-4 text-2xl">{{ $t("detail.mainCast") }}</p>
     <div>
       <ul class="flex space-x-2">
         <li v-for="p in detailCast" :key="p.id">

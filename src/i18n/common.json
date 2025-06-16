@@ -1,0 +1,92 @@
+{
+  "zh-TW": {
+    "time": {
+      "hour": "小時",
+      "minute": "分鐘"
+    },
+    "detail": {
+      "removeWatchlist": "取消待看清單",
+      "addWatchlist": "加入待看清單",
+      "playTrailer": "播放預告片",
+      "mainCast": "主要演員"
+    },
+    "navigation": {
+      "home": "首頁",
+      "watchlist": "待看清單"
+    },
+    "home": {
+      "introTitle": "探索無限精彩",
+      "introDescription": "數百萬部電影與電視劇，等你來發現"
+    },
+    "search": {
+      "placeholder": "搜尋電影、電視劇、演員..."
+    },
+    "topList": {
+      "movies": "熱門電影 TOP 20",
+      "tvShows": "熱門電視劇 TOP 20"
+    },
+    "footer": {
+      "description": "你的專屬影視探索平台，發現更多精彩內容。",
+      "quickLinks": "快速連結",
+      "popularMovies": "熱門電影",
+      "popularTVShows": "熱門電視劇",
+      "comingSoon": "即將上映",
+      "topCharts": "排行榜",
+      "categories": "分類",
+      "action": "動作",
+      "comedy": "喜劇",
+      "sciFi": "科幻",
+      "horror": "恐怖",
+      "aboutUs": "關於我們",
+      "contactUs": "聯絡我們",
+      "privacyPolicy": "隱私政策",
+      "termsOfService": "服務條款",
+      "faq": "FAQ"
+    }
+  },
+  "en": {
+    "time": {
+      "hour": "Hour",
+      "minute": "Minute"
+    },
+    "detail": {
+      "removeWatchlist": "Remove from Watchlist",
+      "addWatchlist": "Add to Watchlist",
+      "playTrailer": "Play Trailer",
+      "mainCast": "Main Cast"
+    },
+    "navigation": {
+      "home": "Home",
+      "watchlist": "Watchlist"
+    },
+    "home": {
+      "introTitle": "Explore endless excitement",
+      "introDescription": "Discover millions of movies and TV shows waiting for you"
+    },
+    "search": {
+      "placeholder": "Search movies, TV shows, actors..."
+    },
+    "topList": {
+      "movies": "Top 20 Popular Movies",
+      "tvShows": "Top 20 Popular TV Shows"
+    },
+    "footer": {
+      "description": "Your dedicated platform for exploring movies and TV shows, discover more exciting content.",
+      "quickLinks": "Quick Links",
+      "popularMovies": "Popular Movies",
+      "popularTVShows": "Popular TV Shows",
+      "comingSoon": "Coming Soon",
+      "topCharts": "Top Charts",
+      "categories": "Categories",
+      "action": "Action",
+      "comedy": "Comedy",
+      "sciFi": "Sci-Fi",
+      "horror": "Horror",
+      "aboutUs": "About Us",
+      "contactUs": "Contact Us",
+      "privacyPolicy": "Privacy Policy",
+      "termsOfService": "Terms of Service",
+      "faq": "FAQ"
+    }
+  }
+}
