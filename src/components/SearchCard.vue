@@ -1,6 +1,6 @@
 <template>
   <div class="flex h-48 mb-4 overflow-hidden bg-white shadow-lg rounded-xl">
-    <div class="flex-shrink-0">
+    <div class="flex-shrink-0 aspect-[2/3]">
       <img
         :src="
           media.poster_path
@@ -8,7 +8,7 @@
             : 'https://dummyimage.com/300x450/9e9e9e/fff.png&text=No+image'
         "
         :alt="media.title"
-        class="object-cover w-full h-full aspect-[2/3] rounded-l-xl"
+        class="object-cover w-full h-full rounded-l-xl"
       />
     </div>
     <div class="flex-1">
