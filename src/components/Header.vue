@@ -60,24 +60,28 @@
           <router-link
             :to="'/'"
             class="font-medium text-gray-700 transition-colors hover:text-blue-600"
+            @click="menuStore.menuOpen = false"
           >
             {{ $t("navigation.home") }}
           </router-link>
           <router-link
             :to="'/movie'"
             class="font-medium text-gray-700 transition-colors hover:text-blue-600"
+            @click="menuStore.menuOpen = false"
           >
             {{ $t("navigation.movies") }}
           </router-link>
           <router-link
             :to="'/tv'"
             class="font-medium text-gray-700 transition-colors hover:text-blue-600"
+            @click="menuStore.menuOpen = false"
           >
             {{ $t("navigation.tvShows") }}
           </router-link>
           <router-link
             :to="'/watchlist'"
             class="font-medium text-gray-700 transition-colors hover:text-blue-600"
+            @click="menuStore.menuOpen = false"
           >
             {{ $t("navigation.watchlist") }}
           </router-link>

@@ -54,13 +54,13 @@ defineProps(["media", "index", "media_type"]);
 
 function getDetail(id: number, type: string) {
   if (type == "tv") {
-    // router.push({ name: "TvDetailPage", params: { id: id.toString() } });
-    const url = `${window.location.origin}/media-detail/${type}/${id}`;
-    window.open(url, "_blank");
+    router.push({ name: "TvDetailPage", params: { id: id.toString() } });
+    // const url = `${window.location.origin}/media-detail/${type}/${id}`;
+    // window.open(url, "_blank");
   } else {
-    const url = `${window.location.origin}/media-detail/${type}/${id}`;
-    window.open(url, "_blank");
-    // router.push({ name: "MovieDetailPage", params: { id: id.toString() } });
+    // const url = `${window.location.origin}/media-detail/${type}/${id}`;
+    // window.open(url, "_blank");
+    router.push({ name: "MovieDetailPage", params: { id: id.toString() } });
   }
 }
 </script>
