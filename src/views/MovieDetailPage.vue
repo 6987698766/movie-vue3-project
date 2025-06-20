@@ -1,5 +1,5 @@
 <template>
-  <section class="relative w-full">
+  <section class="relative w-full lg:min-h-[50vh]">
     <div
       class="absolute inset-0 bg-center bg-cover"
       :style="{
@@ -7,8 +7,8 @@
       }"
     ></div>
     <!-- 內容層 -->
-    <div class="relative lg:min-h-[50vh]">
-      <div class="flex flex-col min-h-full lg:flex-row lg:items-center lg:justify-center">
+    <div class="relative">
+      <div class="flex flex-row min-h-full lg:items-center lg:justify-center">
         <!-- 左側 -->
         <div class="w-64 py-4 pl-8 lg:w-72 lg:flex-shrink-0 lg:p-12">
           <img
@@ -117,7 +117,7 @@
       </div>
     </div>
   </section>
-  <section class="flex-col px-16 py-12">
+  <section class="px-16 py-12">
     <p class="mb-4 text-2xl">{{ $t("detail.mainCast") }}</p>
     <div>
       <ul class="grid grid-cols-3 gap-2 lg:grid-cols-7">

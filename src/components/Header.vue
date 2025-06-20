@@ -22,9 +22,18 @@
           >
             {{ $t("navigation.home") }}
           </router-link>
-          <!-- <a href="#" class="font-medium text-gray-700 transition-colors hover:text-blue-600"
-            >電影</a
-          >-->
+          <router-link
+            :to="'/movie'"
+            class="font-medium text-gray-700 transition-colors hover:text-blue-600"
+          >
+            {{ $t("navigation.movies") }}
+          </router-link>
+          <router-link
+            :to="'/tv'"
+            class="font-medium text-gray-700 transition-colors hover:text-blue-600"
+          >
+            {{ $t("navigation.tvShows") }}
+          </router-link>
 
           <router-link
             :to="'/watchlist'"
@@ -53,6 +62,18 @@
             class="font-medium text-gray-700 transition-colors hover:text-blue-600"
           >
             {{ $t("navigation.home") }}
+          </router-link>
+          <router-link
+            :to="'/movie'"
+            class="font-medium text-gray-700 transition-colors hover:text-blue-600"
+          >
+            {{ $t("navigation.movies") }}
+          </router-link>
+          <router-link
+            :to="'/tv'"
+            class="font-medium text-gray-700 transition-colors hover:text-blue-600"
+          >
+            {{ $t("navigation.tvShows") }}
           </router-link>
           <router-link
             :to="'/watchlist'"

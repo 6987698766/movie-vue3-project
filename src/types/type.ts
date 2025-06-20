@@ -10,3 +10,14 @@ export interface TmdbVideo {
   iso_3166_1: string;
   size: number;
 }
+
+export interface TmdbGenre {
+  id: number;
+  name: string;
+}
+
+export interface DiscoverTvResponse {
+  results: any[];
+  total_pages: number;
+  total_results: number;
+}

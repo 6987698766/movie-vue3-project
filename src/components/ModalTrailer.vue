@@ -5,7 +5,9 @@
   >
     <div class="relative w-full max-w-xl bg-white rounded-lg shadow-lg md:max-w-3xl lg:max-w-5xl">
       <div class="flex justify-between px-4 py-2 bg-black">
-        <span class="text-white">{{ $t("detail.playTrailer") }}</span>
+        <span class="text-white">{{
+          videoKey ? $t("detail.playTrailer") : $t("detail.noTrailer")
+        }}</span>
         <button @click="$emit('close')" class="text-xl font-bold text-gray-600 hover:text-gray-900">
           &times;
         </button>

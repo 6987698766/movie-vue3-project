@@ -4,7 +4,11 @@
   >
     <div class="relative overflow-hidden">
       <img
-        :src="'https://image.tmdb.org/t/p/original' + media.poster_path"
+        :src="
+          media.poster_path
+            ? 'https://image.tmdb.org/t/p/original' + media.poster_path
+            : 'https://dummyimage.com/300x450/9e9e9e/fff.png&text=No+image'
+        "
         :alt="media.title"
         :key="media.id"
         class="object-cover w-full transition-transform duration-300 h-70 group-hover:scale-110"
@@ -50,9 +54,13 @@ defineProps(["media", "index", "media_type"]);
 
 function getDetail(id: number, type: string) {
   if (type == "tv") {
-    router.push({ name: "TvDetailPage", params: { id: id.toString() } });
+    // router.push({ name: "TvDetailPage", params: { id: id.toString() } });
+    const url = `${window.location.origin}/media-detail/${type}/${id}`;
+    window.open(url, "_blank");
   } else {
-    router.push({ name: "MovieDetailPage", params: { id: id.toString() } });
+    const url = `${window.location.origin}/media-detail/${type}/${id}`;
+    window.open(url, "_blank");
+    // router.push({ name: "MovieDetailPage", params: { id: id.toString() } });
   }
 }
 </script>

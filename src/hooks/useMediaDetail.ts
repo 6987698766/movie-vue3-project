@@ -1,10 +1,15 @@
 import axios from "axios";
-import type { TmdbVideo } from "@/types/type.ts";
+import type { TmdbVideo, DiscoverTvResponse } from "@/types/type.ts";
+import { useRouter, useRoute } from "vue-router";
 
 export default function () {
   const MOVIE_DETAIL = "https://api.themoviedb.org/3/movie";
   const TV_DETAIL = "https://api.themoviedb.org/3/tv";
   const AUTH_KEY = import.meta.env.VITE_TMDB_AUTH_KEY;
+  const TV_QUERY = "https://api.themoviedb.org/3/discover/tv";
+  const MOVIE_QUERY = "https://api.themoviedb.org/3/discover/movie";
+  const GENRES = "https://api.themoviedb.org/3/genre/tv/list";
+  const MOVIE_GENRES = "https://api.themoviedb.org/3/genre/movie/list";
 
   async function goDetail(media_type: string, movie_id: string) {
     let data = null;
@@ -87,5 +92,79 @@ export default function () {
     }
   }
 
-  return { goDetail };
+  async function fetchGenres(type: string) {
+    if (type === "tv") {
+      try {
+        const res = await axios.get(GENRES, {
+          headers: {
+            Accept: "application/json",
+            Authorization: "Bearer " + AUTH_KEY,
+          },
+        });
+        const genres = res.data.genres;
+        return genres;
+      } catch (err) {
+        console.error("Error fetching genres:", err);
+        return [];
+      }
+    } else {
+      try {
+        const res = await axios.get(MOVIE_GENRES, {
+          headers: {
+            Accept: "application/json",
+            Authorization: "Bearer " + AUTH_KEY,
+          },
+        });
+        const genres = res.data.genres;
+        return genres;
+      } catch (err) {
+        console.error("Error fetching genres:", err);
+        return [];
+      }
+    }
+  }
+
+  async function discoverTvShows(q: Record<string, any>): Promise<DiscoverTvResponse> {
+    try {
+      const res = await axios.get(TV_QUERY, {
+        params: q,
+        headers: {
+          Accept: "application/json",
+          Authorization: "Bearer " + AUTH_KEY,
+        },
+      });
+
+      return res.data;
+    } catch (err) {
+      console.error("Error fetching genres:", err);
+      return {
+        results: [],
+        total_pages: 0,
+        total_results: 0,
+      };
+    }
+  }
+
+  async function discoverMovies(q: Record<string, any>): Promise<DiscoverTvResponse> {
+    try {
+      const res = await axios.get(MOVIE_QUERY, {
+        params: q,
+        headers: {
+          Accept: "application/json",
+          Authorization: "Bearer " + AUTH_KEY,
+        },
+      });
+
+      return res.data;
+    } catch (err) {
+      console.error("Error fetching genres:", err);
+      return {
+        results: [],
+        total_pages: 0,
+        total_results: 0,
+      };
+    }
+  }
+
+  return { goDetail, fetchGenres, discoverTvShows, discoverMovies };
 }
