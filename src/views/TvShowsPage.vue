@@ -111,7 +111,8 @@
         <div class="grid grid-cols-2 gap-6 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
           <MovieCard v-for="(m, index) in results" :media="m" :index="index" media_type="tv" />
         </div>
-        <div ref="loadTrigger" style="height: 1px"></div>
+        <div ref="loadTrigger" class="h-px"></div>
+        <LoadingSpinner class="mt-8" v-if="isLoading" />
       </main>
     </div>
   </div>
@@ -127,6 +128,7 @@ import VueDatePicker from "@vuepic/vue-datepicker";
 import "@vuepic/vue-datepicker/dist/main.css";
 import useMediaDetail from "@/hooks/useMediaDetail";
 import useInfiniteScroll from "@/hooks/useInfiniteScroll";
+import LoadingSpinner from "@/components/LoadingSpinner.vue";
 
 const route = useRoute();
 const router = useRouter();
